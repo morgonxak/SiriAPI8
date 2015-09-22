@@ -6,6 +6,11 @@ class search:
         self.SiriAPI = SiriAPI
 
     def search (self, q): #search for matching
+    try:
+            q = base64.b64decode(bytes(q, encoding='utf-8'))
+            q = str(q, encoding='utf-8')
+        except Exception:
+            pass
         q_search = q.lower().replace(self.SiriAPI.keyword + " ", "")
         for keywords in self.SiriAPI.action.actions[:]: #Complicated search algorithm ;)
             for keyword in keywords['find'][:]:
