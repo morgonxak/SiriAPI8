@@ -1,17 +1,19 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+import base64, re
+find_rus = re.compile(r'[а-яА-Я]')
 class search:
     def __init__ (self, SiriAPI):
         self.SiriAPI = SiriAPI
 
     def search (self, q): #search for matching
-    try:
+        try:
             q = base64.b64decode(bytes(q, encoding='utf-8'))
             q = str(q, encoding='utf-8')
         except Exception:
             pass
         q_search = q.lower().replace(self.SiriAPI.keyword + " ", "")
+
         for keywords in self.SiriAPI.action.actions[:]: #Complicated search algorithm ;)
             for keyword in keywords['find'][:]:
                 for find in keyword[:]:
