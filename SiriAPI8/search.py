@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import base64, re
-find_rus = re.compile(r'[а-яА-Я]')
+import base64
 class search:
     def __init__ (self, SiriAPI):
         self.SiriAPI = SiriAPI
