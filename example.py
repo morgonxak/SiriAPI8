@@ -9,7 +9,7 @@ def hello(q, wildcards): #Answer function
 SiriAPI = SiriAPI("icloud_mail@me.com", "Password") #Create SiriAPI8 object
 print(SiriAPI.get_version())
 
-SiriAPI.action.add([['hello', '*']], hello) #Add answer function for hello *
+SiriAPI.action.add([['Привет', '*']], hello) #Add answer function for hello *
 
 SiriAPI.connect() #Connect to iCloud
 
